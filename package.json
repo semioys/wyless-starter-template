@@ -9,6 +9,7 @@
   "author": "wyless",
   "license": "ISC",
   "devDependencies": {
-    "gulp": "github:gulpjs/gulp#4.0"
+    "gulp": "github:gulpjs/gulp#4.0",
+    "gulp-pug": "^3.3.0"
   }
 }
