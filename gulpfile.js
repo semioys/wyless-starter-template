@@ -1,5 +1,6 @@
 var gulp = require('gulp'),
-    plugins = require('gulp-load-plugins')();
+    plugins = require('gulp-load-plugins')(),
+    rimraf = require('rimraf');
 
 gulp.task('pug', function() {
   return gulp.src('./src/pug/pages/*.pug')
@@ -25,3 +26,18 @@ gulp.task('sass', function() {
     .pipe(plugins.sourcemaps.write())
     .pipe(gulp.dest('./build/css'));
 });
+
+gulp.task('clean', function(cb) {
+  return rimraf('./build', cb);
+});
+
+gulp.task('watch', function() {
+  gulp.watch('./src/pug/**/*.pug', gulp.series('pug'));
+  gulp.watch('./src/static/sass/**/*.scss', gulp.series('sass'));
+});
+
+gulp.task('default', gulp.series(
+  'clean',
+  gulp.parallel('pug', 'sass'),
+  'watch' 
+));
