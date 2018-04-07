@@ -3,7 +3,7 @@ var gulp = require('gulp'),
     rimraf = require('rimraf');
 
 gulp.task('pug', function() {
-  return gulp.src('./src/pug/pages/*.pug')
+  return gulp.src('./src/templates/index.pug')
     .pipe(plugins.pug({
       pretty: true
     }))
@@ -32,7 +32,7 @@ gulp.task('clean', function(cb) {
 });
 
 gulp.task('watch', function() {
-  gulp.watch('./src/pug/**/*.pug', gulp.series('pug'));
+  gulp.watch('./src/templates/**/*.pug', gulp.series('pug'));
   gulp.watch('./src/static/sass/**/*.scss', gulp.series('sass'));
 });
 
