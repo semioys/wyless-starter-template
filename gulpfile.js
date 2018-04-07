@@ -1,13 +1,24 @@
 var gulp = require('gulp'),
     plugins = require('gulp-load-plugins')(),
-    rimraf = require('rimraf');
+    rimraf = require('rimraf'),
+    browserSync = require('browser-sync').create();
+
+
+gulp.task('server', function() {
+  browserSync.init({
+      server: {
+          baseDir: "./build"
+      }
+  });
+});
 
 gulp.task('pug', function() {
   return gulp.src('./src/templates/index.pug')
     .pipe(plugins.pug({
       pretty: true
     }))
-    .pipe(gulp.dest('./build'));
+    .pipe(gulp.dest('./build'))
+    .on('end', browserSync.reload);
 });
 
 gulp.task('sass', function() {
@@ -24,7 +35,10 @@ gulp.task('sass', function() {
     .pipe(plugins.csso())
     .pipe(plugins.rename('main.min.css'))
     .pipe(plugins.sourcemaps.write())
-    .pipe(gulp.dest('./build/css'));
+    .pipe(gulp.dest('./build/css'))
+    .pipe(browserSync.reload({
+      stream: true
+    }));
 });
 
 gulp.task('clean', function(cb) {
@@ -39,5 +53,5 @@ gulp.task('watch', function() {
 gulp.task('default', gulp.series(
   'clean',
   gulp.parallel('pug', 'sass'),
-  'watch' 
+  gulp.parallel('watch', 'server') 
 ));
