@@ -37,7 +37,7 @@
 
 Используется [pug](https://pugjs.org/api/getting-started.html). HTML никак не обрабатывается.
 
-По умолчанию используются [наследование шаблонов](https://pugjs.org/language/inheritance.html) — все страницы (см. `./src/templates/index.pug`) являются расширениями шаблонов. Разметка каждого блока описываеться отдельным файлом (в `./src/templates/sections`).
+По умолчанию используются [наследование шаблонов](https://pugjs.org/language/inheritance.html), разметка каждого блока описываеться отдельным файлом (в `./src/templates/sections`). Все блоки подлючаються в один файл(см. `./src/templates/index.pug`).
 
 ## Стили
 
