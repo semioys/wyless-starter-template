@@ -29,6 +29,17 @@ gulp.task('js', function() {
     }));
 });
 
+gulp.task('js:libs', function() {
+  return gulp.src([
+    './node_modules/svg4everybody/dist/svg4everybody.legacy.min.js',
+  ])
+    .pipe(plugins.concat('main.min.libs.js'))
+    .pipe(gulp.dest('./build/js'))
+    .pipe(browserSync.reload({
+      stream: true
+    }));
+});
+
 gulp.task('pug', function() {
   return gulp.src('./src/templates/index.pug')
     .pipe(plugins.pug({
@@ -115,11 +126,11 @@ gulp.task('watch', function() {
 
 gulp.task('default', gulp.series(
   'clean',
-  gulp.parallel('pug', 'sass', 'js', 'svg', 'img:dev'),
+  gulp.parallel('pug', 'sass', 'js', 'js:libs', 'svg', 'img:dev'),
   gulp.parallel('watch', 'server') 
 ));
 
 gulp.task('build', gulp.series(
   'clean',
-  gulp.parallel('pug', 'sass', 'js', 'svg', 'img:build'),
+  gulp.parallel('pug', 'sass', 'js', 'js:libs', 'svg', 'img:build'),
 ));
