@@ -50,12 +50,6 @@
 1. [autoprefixer](https://github.com/postcss/autoprefixer)
 2. [csso](https://github.com/css/csso)
 
-### Модульная сетка (flexbox)
-
-По умолчанию в сборку берётся [файл с примесями](https://github.com/nicothin/NTH-start-project/blob/master/src/scss/mixins/grid-mixins.scss), возвращающими правила модульной сетки. Никаких селекторов в CSS не добавляет, нужно писать семантические селекторы и вызывать примеси, передавая им настройки сетки. Настройки по умолчанию вынесены в переменные (`$grid-columns: 12;` и `$grid-gutter-width: 30px;`).
-
-Посмотреть примеры и попробовать вживую можно в [этом примере с codepen.io](https://codepen.io/nicothin/pen/aJEOwE?editors=1100).
-
 ## Назначение папок
 
 ```bash
