@@ -13,8 +13,8 @@
   "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-preset-env": "^1.6.1",
-    "browser-sync": "^2.24.6",
-    "gulp": "github:gulpjs/gulp#4.0",
+    "browser-sync": "^2.26.3",
+    "gulp": "4.0",
     "gulp-autoprefixer": "^5.0.0",
     "gulp-babel": "^7.0.1",
     "gulp-cheerio": "^0.6.3",
